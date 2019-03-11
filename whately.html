@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Whately</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+   crossorigin=""></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+    <style>
+    #map { 
+      height: 640px; 
+    }
+    .leaflet-popup-content {
+      width: 250px;
+    }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .hero.is-info #map .leaflet-bar a {
+      color: #000000;
+    }
+    .hero.is-info #map .leaflet-bar a.leaflet-disabled {
+      color: #bbbbbb;
+    }
+    </style>
+  </head>
+  <body>
+  <section class="hero is-info is-fullheight-with-navbar">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Whately Map
+        </h1>
+        <!-- <p class="subtitle">
+        </p> -->
+        <div id="map"></div>
+      </div>
+    </div>
+  </section>
+  <script>
+    var map = L.map('map', {
+        crs: L.CRS.Simple,
+        minZoom: -1
+    });
+    var bounds = [[0,0], [1600,2400]];
+    var image = L.imageOverlay('quad.jpg', bounds).addTo(map);
+    map.fitBounds(bounds);
+
+    var marthasIsland = L.latLng([ 1368, 940 ]);
+    L.marker(marthasIsland).addTo(map).bindPopup("<h2>Martha's Island</h2><audio src='audio/1-Marthas-Island.mp3' controls></audio>");
+    
+    var hotSwimming = L.latLng([ 1368, 1000 ]);
+    L.marker(hotSwimming).addTo(map).bindPopup("<h2>Hot Swimming</h2><audio src='audio/2-Hot-Swimming.mp3' controls></audio>");
+
+    var tobacco = L.latLng([ 1345, 1030 ]);
+    L.marker(tobacco).addTo(map).bindPopup("<h2>Tobacco</h2><audio src='audio/3-Tobacco.mp3' controls></audio>");
+
+    var truckRide = L.latLng([ 1390, 1060 ]);
+    L.marker(truckRide).addTo(map).bindPopup("<h2>Truck Ride</h2><audio src='audio/4-Truck-Ride.mp3' controls></audio>");
+
+    var school = L.latLng([ 980, 1124 ]);
+    L.marker(school).addTo(map).bindPopup("<h2>School Orange</h2><audio src='audio/5-School-Orange.mp3' controls></audio><h2>Penmanship</h2><audio src='audio/6-Penmanship.mp3' controls></audio>");
+
+    var postOffice = L.latLng([ 917, 1128 ]);
+    L.marker(postOffice).addTo(map).bindPopup("<h2>Post Office</h2><audio src='audio/7-Post-Office.mp3' controls></audio><h2>Post Office Money</h2><audio src='audio/14-Post-Office-Money.mp3' controls></audio>");
+
+    var involvement = L.latLng([ 910, 1134 ]);
+    L.marker(involvement).addTo(map).bindPopup("<h2>Involvement</h2><audio src='audio/8-Involvement.mp3' controls></audio>");
+
+    var rustedCar = L.latLng([ 887, 1100 ]);
+    L.marker(rustedCar).addTo(map).bindPopup("<h2>Rusted Car</h2><audio src='audio/9-Rusted-Car.mp3' controls></audio>");
+
+    var rustedCar = L.latLng([ 887, 1100 ]);
+    L.marker(rustedCar).addTo(map).bindPopup("<h2>Rusted Car</h2><audio src='audio/9-Rusted-Car.mp3' controls></audio>");
+
+    var popcorn = L.latLng([ 895, 1094 ]);
+    L.marker(popcorn).addTo(map).bindPopup("<h2>Popcorn</h2><audio src='audio/10-Popcorn.mp3' controls></audio>");
+
+    var dickinson = L.latLng([ 854, 1118 ]);
+    L.marker(dickinson).addTo(map).bindPopup("<h2>Dickinson</h2><audio src='audio/13-Dickinson.mp3' controls></audio>");
+
+    var tractor = L.latLng([ 680, 1185 ]);
+    L.marker(tractor).addTo(map).bindPopup("<h2>Tractor</h2><audio src='audio/15-Tractor.mp3' controls></audio>");
+
+    var dairy = L.latLng([ 625, 1175 ]);
+    L.marker(dairy).addTo(map).bindPopup("<h2>Dairy</h2><audio src='audio/16-Dairy.mp3' controls></audio>");
+
+    var cowPaths = L.latLng([ 525, 955 ]);
+    L.marker(cowPaths).addTo(map).bindPopup("<h2>Cow Paths</h2><audio src='audio/17-Cow-Paths.mp3' controls></audio>");
+
+    var sledding = L.latLng([ 614, 624 ]);
+    L.marker(sledding).addTo(map).bindPopup("<h2>Sledding</h2><audio src='audio/11-Sledding.mp3' controls></audio>");
+
+    var dairyFarm = L.latLng([ 1100, 1046 ]);
+    L.marker(dairyFarm).addTo(map).bindPopup("<h2>One Dairy Farm</h2><audio src='audio/12-One-Dairy-Farm.mp3' controls></audio>");
+
+    map.setView([900, 1200], map.getZoom(), { animation: false })
+  </script>
+  </body>
+</html>
